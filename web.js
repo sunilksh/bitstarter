@@ -4,10 +4,11 @@ var fs = require('fs');
 
 app.use(express.logger());
 
-var buf = fs.readFileSync('/home/ubuntu/bitstarter/index.html','utf8');
+var buf = fs.readFileSync('./index.html','utf8');
+console.log(buf);
 
 app.get('/', function(request, response) {
-  response.send(buf);
+  response.end(buf);
 });
 
 var port = process.env.PORT || 5000;
